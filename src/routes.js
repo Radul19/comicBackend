@@ -2,20 +2,24 @@ const { Router } = require("express")
 const multer = require("multer")
 const { home, login, register, addSerie, getProfile, deleteSerie, getSerie, addCap, updateProfile, editSerie, getCap, deleteCap, editCap, createComment, deleteComment, editComment, searchSerie } = require('./controller')
 
-///// Middleware Multer
+///// Configuracion Middleware Multer 
 const itemStorageConfig = multer.diskStorage({
+    // Ubicacion de las imagenes en Public/Uplaod
     destination: (req, file, cb) => {
         cb(null, "./public/uploads")
     },
+    // El nombre de las imagenes sera imn-- + el numero en orden de la imagen 
     filename: (req, file, cb) => {
         cb(null, "img--" + file.originalname)
     }
 })
-
+// Se aplica la configuracion de multer
 const uploadItem = multer({ storage: itemStorageConfig })
 
 const router = Router()
 
+// Aqui van todas las rutas
+// router.get(Enlace para acceder , funcion a ejecutar)
 router.get('/', home)
 
 router.get('/login/:username/:password', login)
