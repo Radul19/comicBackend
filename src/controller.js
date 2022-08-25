@@ -11,8 +11,8 @@ const moment = require('moment');
 const cloudinary = require("cloudinary").v2
 cloudinary.config({
     cloud_name: "comicseries",
-    api_key: 317699299852547,
-    api_secret: "8MwOkn2RLuQxxJ7gOzDKuif2ofs",
+    api_key: "" , /*Add api key*/
+    api_secret: "", /* Add api secret */
 })
 
 const compare = (a, b) => {
